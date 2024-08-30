@@ -29,8 +29,18 @@ RUN git clone https://github.com/zdaar/ComfyUI-GGUF /comfyui/custom_nodes/ComfyU
     git checkout abe5c6a6c90a3f8a53a097614bf749de506c6df7 && \
     if [ -f requirements.txt ]; then pip install --no-cache-dir -r requirements.txt; fi
 
+# Clone ComfyUI-KJNodes repository at specific commit
+RUN git clone https://github.com/zdaar/ComfyUI-KJNodes /comfyui/custom_nodes/ComfyUI-KJNodes && \
+    cd /comfyui/custom_nodes/ComfyUI-KJNodes && \
+    git checkout 326d5945b711e6e161de83cd2a7fb3ba3839560a && \
+    if [ -f requirements.txt ]; then pip install --no-cache-dir -r requirements.txt; fi
 
-    
+# Clone ComfyUI_Comfyroll_CustomNodes repository at specific commit
+RUN git clone https://github.com/zdaar/ComfyUI_Comfyroll_CustomNodes /comfyui/custom_nodes/ComfyUI_Comfyroll_CustomNodes && \
+    cd /comfyui/custom_nodes/ComfyUI_Comfyroll_CustomNodes && \
+    git checkout d78b780ae43fcf8c6b7c6505e6ffb4584281ceca && \
+    if [ -f requirements.txt ]; then pip install --no-cache-dir -r requirements.txt; fi    
+
 # Change working directory to ComfyUI
 WORKDIR /comfyui
 
